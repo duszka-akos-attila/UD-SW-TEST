@@ -1,6 +1,7 @@
 package demoblaze.test.login;
 
-import demoblaze.test.setup.LoadBrowser;
+
+import demoblaze.test.setup.Base;
 import io.cucumber.java.en.And;
 import org.openqa.selenium.By;
 
@@ -12,16 +13,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.*;
 
-public class LoginStepDefinitions extends LoadBrowser {
+public class LoginStepDefinitions extends Base {
 
     WebDriverWait wait = new WebDriverWait(driver,40);
 
-    @Given("the {string} website")
-    public void loadSite(String url) {
-        driver.navigate().to(url);
-    }
-
-    @And("navigate to Log in page")
+    @Given("the Login page")
     public void navigateToLogin(){
         driver.findElement(By.cssSelector("#login2")).click();
     }

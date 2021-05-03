@@ -1,6 +1,6 @@
 package demoblaze.test.cart;
 
-import demoblaze.test.setup.LoadBrowser;
+import demoblaze.test.setup.Base;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,16 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.testng.Assert.assertEquals;
 
-public class CartStepDefinitions extends LoadBrowser {
+public class CartStepDefinitions extends Base {
 
     WebDriverWait wait = new WebDriverWait(driver,40);
     String selectedItem;
     int numberOfItems = 0;
-
-    @Given("the {string} website")
-    public void loadSite(String url) {
-        driver.navigate().to(url);
-    }
 
     @Given("user select an item")
     public void selectItem() {

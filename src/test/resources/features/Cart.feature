@@ -1,8 +1,5 @@
 Feature: Cart
 
-  Background:
-    Given the "https://www.demoblaze.com" website
-
   Scenario: Add to cart
     Given user select an item
     And Add to cart

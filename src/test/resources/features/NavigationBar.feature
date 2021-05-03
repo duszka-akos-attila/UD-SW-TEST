@@ -1,8 +1,5 @@
 Feature: Navigation bar
 
-  Background:
-    Given the "https://www.demoblaze.com" website
-
   Scenario Outline: Navigation bar page redirections
     Given the user press the <btnXpath> button
     Then the <link> page should be loaded
@@ -22,6 +19,3 @@ Feature: Navigation bar
     | "/html/body/nav/div[1]/ul/li[3]/a"| "/html/body/div[4]"|
     | "/html/body/nav/div[1]/ul/li[5]/a"| "/html/body/div[3]"|
     | "/html/body/nav/div[1]/ul/li[8]/a"| "/html/body/div[2]"|
-
-
-

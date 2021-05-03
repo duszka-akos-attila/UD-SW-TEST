@@ -1,6 +1,6 @@
 package demoblaze.test.navigationbar;
 
-import demoblaze.test.setup.LoadBrowser;
+import demoblaze.test.setup.Base;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,14 +12,9 @@ import io.cucumber.java.en.Given;
 
 import static org.testng.Assert.assertEquals;
 
-public class NavigationBarStepDefinitions extends LoadBrowser {
+public class NavigationBarStepDefinitions extends Base {
 
     WebDriverWait wait = new WebDriverWait(driver,40);
-
-    @Given("the {string} website")
-    public void loadSite(String url) {
-        driver.navigate().to(url);
-    }
 
     @Given("the user press the {string} button")
     public void buttonPressed(String btnXpath) {
@@ -37,11 +32,5 @@ public class NavigationBarStepDefinitions extends LoadBrowser {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(popupXpath)));
         assertEquals(driver.findElement(By.xpath(popupXpath)).getAttribute("class"), "modal fade show");
     }
-
-    @After
-    public void resetSite() {
-        driver.navigate().to("https://www.demoblaze.com");
-    }
-
 }
 

@@ -1,8 +1,7 @@
 Feature: Login
 
   Background:
-    Given the "https://www.demoblaze.com" website
-    And navigate to Log in page
+    Given the Login page
 
   Scenario: Log in with existing user
     Given user enters username "Rabsz Olga"
