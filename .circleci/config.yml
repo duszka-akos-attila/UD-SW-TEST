@@ -6,7 +6,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: circleci/openjdk:14-jdk-node
+      - image: circleci/openjdk:14.0.2
     steps:
       - checkout
       - restore_cache:
