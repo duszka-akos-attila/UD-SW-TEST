@@ -6,10 +6,9 @@ orbs:
 jobs:
   test:
     docker:
-      - image: cimg/openjdk:14.0-node
+      - image: cimg/openjdk:16.0.0
     steps:
       - checkout
-      - run: java --version
       - restore_cache:
           key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
       - run: mvn clean verify
@@ -21,6 +20,7 @@ jobs:
           path: target/cucumber-reports
       - store_artifacts:
           path: target/generated-report
+      - run: java --version
 
 workflows:
   maven_test:
