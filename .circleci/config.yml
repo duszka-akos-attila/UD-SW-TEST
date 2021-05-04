@@ -4,20 +4,13 @@ orbs:
   maven: circleci/maven@1.1
   
 jobs:
-  build:
+  test:
     docker:
-      - image: cimg/openjdk:14.0
+      - image: circleci/openjdk:8-jdk-node
     steps:
       - checkout
       - run: java --version
       - run: node --version
-      
-  test:
-    docker:
-      - image: cimg/openjdk:16.0.0-node
-    steps:
-      - checkout
-      - run: java --version
       - restore_cache:
           key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
       - run: mvn clean verify
