@@ -19,24 +19,24 @@ public class LoginStepDefinitions extends Base {
 
     @Given("the Login page")
     public void navigateToLogin(){
-        driver.findElement(By.cssSelector("#login2")).click();
+        Setup.driver.findElement(By.cssSelector("#login2")).click();
     }
 
     @Given("user enters username {string}")
     public void giveUsername(String username){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#loginusername")));
-        driver.findElement(By.cssSelector("#loginusername")).sendKeys(username);
+        Setup.driver.findElement(By.cssSelector("#loginusername")).sendKeys(username);
     }
 
     @And("user enters password {string}")
     public void givePassword(String password){
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#loginpassword")));
-        driver.findElement(By.cssSelector("#loginpassword")).sendKeys(password);
+        Setup.driver.findElement(By.cssSelector("#loginpassword")).sendKeys(password);
     }
 
     @When("clicks on Log in button")
     public void clickToLogin(){
-        driver.findElement(By.cssSelector("#logInModal > div > div > div.modal-footer > button.btn.btn-primary")).click();
+        Setup.driver.findElement(By.cssSelector("#logInModal > div > div > div.modal-footer > button.btn.btn-primary")).click();
     }
 
     @Then("user should see {string}")
