@@ -19,7 +19,7 @@ public class NavigationBarStepDefinitions extends Base {
     @Given("the user press the {string} button")
     public void buttonPressed(String btnXpath) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(btnXpath)));
-        Setup.driver.findElement(By.xpath(btnXpath)).click();
+        setup.driver.findElement(By.xpath(btnXpath)).click();
     }
 
     @Then("the {string} page should be loaded")
