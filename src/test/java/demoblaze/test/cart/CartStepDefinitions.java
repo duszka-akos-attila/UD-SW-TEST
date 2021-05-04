@@ -20,22 +20,22 @@ public class CartStepDefinitions extends Base {
     @Given("user select an item")
     public void selectItem() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/div/div/h4/a")));
-        driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/div/div/h4/a")).click();
+        Setup.driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div/div[2]/div/div/h4/a")).click();
     }
 
     @And("Add to cart")
     public void addItemToCart() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")));
-        driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
+        Setup.driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/div[2]/div/a")).click();
         selectedItem = driver.findElement(By.xpath("/html/body/div[5]/div/div[2]/h2")).getText();
         wait.until(ExpectedConditions.alertIsPresent());
-        driver.switchTo().alert().accept();
+        Setup.driver.switchTo().alert().accept();
     }
 
     @When("user go to the cart page")
     public void navigateToCart() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/nav/div/div/ul/li[4]/a")));
-        driver.findElement(By.xpath("/html/body/nav/div/div/ul/li[4]/a")).click();
+        Setup.driver.findElement(By.xpath("/html/body/nav/div/div/ul/li[4]/a")).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr")));
         numberOfItems = driver.findElements(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr")).size();
     }
@@ -49,7 +49,7 @@ public class CartStepDefinitions extends Base {
     @When("user delete one item")
     public void deleteItem() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr[1]/td[4]/a")));
-        driver.findElement(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr[1]/td[4]/a")).click();
+        Setup.driver.findElement(By.xpath("/html/body/div[6]/div/div[1]/div/table/tbody/tr[1]/td[4]/a")).click();
     }
     @Then("item removed from cart")
     public void testDelete() throws InterruptedException {
