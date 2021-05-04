@@ -9,6 +9,7 @@ jobs:
       - image: cimg/openjdk:14.0-node
     steps:
       - checkout
+      - run: java --version
       - restore_cache:
           key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
       - run: mvn clean verify
